@@ -32,7 +32,7 @@
     }
   ],
   "auth": {
-    "rolesSource": "test",
+    "rolesSource": "testefefewaf",
     "identityProviders": {
       "github": {
         "registration": {
