@@ -1,0 +1,47 @@
+{
+  "trailingSlash": "auto",
+  "routes": [
+    {
+      "route": "8--"
+    },
+    {
+      "route": "/api/*",
+      "methods": [
+        "PUT",
+        "POST",
+        "PATCH",
+        "DELETE"
+      ],
+      "allowedRoles": [
+        "contributor"
+      ]
+    },
+    {
+      "route": "/login",
+      "rewrite": "/.auth/login/google"
+    },
+    {
+      "route": "/logout",
+      "redirect": "/.auth/logout"
+    },
+    {
+      "route": "*",
+      "methods": [
+        "get",
+        "head"
+      ],
+      "rewrite": "/test"
+    }
+  ],
+  "auth": {
+    "rolesSource": "/api/getroles",
+    "identityProviders": {
+      "google": {
+        "registration": {
+          "clientIdSettingName": "GOOGLE_CLIENT_ID",
+          "clientSecretSettingName": "GOOGLE_CLIENT_SECRET"
+        }
+      }
+    }
+  }
+}
